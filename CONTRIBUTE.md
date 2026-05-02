@@ -2,6 +2,20 @@
 
 This repository contains the PlugLayer Codex plugin, MCP configuration, and Codex-oriented skills for deployment workflows.
 
+## Step-by-step contribution flow
+
+1. Star the repository if you want to follow updates.
+2. Open an issue first if the change is large or changes plugin behavior.
+3. Fork the repository to your own GitHub account.
+4. Clone your fork locally.
+5. Create a feature branch from your fork's `dev` branch if it exists. Otherwise branch from `main`.
+6. Keep the work scoped to one clear improvement.
+7. Validate plugin JSON and review skill examples before pushing.
+8. Push your branch to your fork.
+9. Open a pull request from your fork branch into the public `dev` branch.
+10. Address review feedback in the same branch.
+11. Maintainers will review and promote accepted changes through the normal maintainer flow.
+
 ## Before you start
 
 - Read `README.md`
@@ -43,6 +57,7 @@ Review the skill files to make sure examples still match the current MCP tool su
 - Describe the expected Codex-side behavior
 - Mention any setup or manifest changes
 - Include test or manual validation notes
+- Target the public `dev` branch unless a maintainer explicitly asks for another base branch
 
 ## Security
 
