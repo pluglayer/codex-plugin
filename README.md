@@ -19,6 +19,20 @@ This plugin connects Codex to PlugLayer using the published `pluglayer-mcp` pack
 export PLUGLAYER_API_KEY="plk_your_token_here"
 ```
 
+## Install step by step
+1. Clone or download this plugin folder.
+2. Make sure `uvx` can run `pluglayer-mcp`.
+3. Create a PlugLayer API token in the PlugLayer Settings page.
+4. Export the token in the shell where you will launch Codex:
+
+```bash
+export PLUGLAYER_API_KEY="plk_your_token_here"
+```
+
+5. Point Codex at this plugin directory according to your Codex plugin loading flow.
+6. Confirm the PlugLayer MCP is connected.
+7. Use the included skills to inspect, deploy, debug, and handle domain setup.
+
 ## MCP configuration used by this plugin
 
 ```json
