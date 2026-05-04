@@ -19,6 +19,7 @@ Use this skill when a PlugLayer deployment failed, is crash-looping, or is not r
    - missing compute
    - ingress/domain issue
    - compose mismatch
+   - missing project or compute setup expectations
 4. Inspect the relevant local repo files.
 5. Patch the smallest correct fix.
 6. Redeploy.
@@ -31,6 +32,8 @@ Use this skill when a PlugLayer deployment failed, is crash-looping, or is not r
 - add missing runtime package or build step
 - correct compose service port mapping
 - point the user to missing secrets/env vars
+- explain clearly when deployment is just still in progress and may need around 10 minutes
+- if custom domain is involved, separate app health from DNS verification health
 
 ## Response style
 Be concrete and calm:

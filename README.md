@@ -8,6 +8,7 @@ This plugin connects Codex to PlugLayer using the published `pluglayer-mcp` pack
   - repo inspection
   - deployment to PlugLayer
   - deployment failure diagnosis
+  - custom domain guidance
 
 ## Requirements
 1. `pluglayer-mcp` must be available through `uvx`
@@ -36,15 +37,18 @@ export PLUGLAYER_API_KEY="plk_your_token_here"
 ## Good first prompts
 - "Inspect this repo and tell me whether I should deploy it with Dockerfile or docker-compose."
 - "Create a PlugLayer project for this repo and deploy it."
-- "Show me my available compute and tell me whether I can deploy now."
+- "Build this repo, deploy it to PlugLayer, and use the default domain for now."
+- "Help me attach my custom domain and explain exactly what to put in my DNS provider."
 - "Why did this PlugLayer deploy fail? Check logs and fix it."
 
 ## Current scope
 This plugin is strongest for:
+- current local repos that need a local image build before deploy
 - existing Docker images
 - Dockerfile-backed repos
 - docker-compose deployments
 - failure diagnosis using PlugLayer logs plus local repo inspection
-- end-user self-service compute visibility and personal SSH node onboarding
+- end-user compute selection through PlugLayer marketplace
+- custom domain onboarding and verification help
 
 It does not expose PlugLayer admin-only tools. The MCP surface is focused on what an end user needs to ship and operate their own apps.
