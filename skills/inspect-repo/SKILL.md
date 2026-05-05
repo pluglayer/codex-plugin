@@ -10,6 +10,7 @@ Use this skill when the user asks to deploy an app from a local codebase, wants 
 ## Goals
 - Identify deployable units
 - Decide Dockerfile vs docker-compose
+- Decide whether the current repo should be built locally and then deployed as an image
 - Detect likely framework/runtime
 - Find build/start commands
 - Infer likely port
