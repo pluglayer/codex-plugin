@@ -65,4 +65,4 @@ This plugin is strongest for:
 - end-user compute selection through PlugLayer marketplace
 - custom domain onboarding and verification help
 
-It does not expose PlugLayer admin-only tools. The MCP surface is focused on what an end user needs to ship and operate their own apps.
+It does not expose PlugLayer admin-only tools. The MCP surface is focused on what an end user needs to ship and operate their own apps, including archiving their own apps and projects while leaving compute administration out of scope.
