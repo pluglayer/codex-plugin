@@ -79,6 +79,8 @@ This plugin is strongest for:
 - failure diagnosis using PlugLayer logs plus local repo inspection
 - custom domain onboarding and verification help
 
+For DNS-heavy flows, the plugin should translate PlugLayer's exact DNS names into registrar-friendly host entries when needed, such as `@` for the root domain or `_pluglayer-verify` instead of `_pluglayer-verify.example.com` in GoDaddy-style UIs.
+
 It does not expose PlugLayer admin-only tools. The MCP surface is focused on what an end user needs to ship and operate their own apps. Compute stays read-only through MCP, users can remove their own apps, and project removal remains an end-user project workflow rather than an admin action.
 
 ## Troubleshooting
