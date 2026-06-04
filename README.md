@@ -2,6 +2,14 @@
 
 This plugin connects Codex to PlugLayer through the published `pluglayer-mcp` package and bundles the PlugLayer deploy and diagnostics skills into one local Codex plugin.
 
+## One-line install
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/pluglayer/pluglayer-codex-plugin/main/install.sh | bash
+```
+
+The installer gives the user a branded PlugLayer terminal flow, stages the plugin into the Codex personal marketplace, saves the PlugLayer token once, and supports reinstall or token-only updates later.
+
 ## What is included
 - `.codex-plugin/plugin.json`
   - the Codex plugin manifest
@@ -17,18 +25,29 @@ This plugin connects Codex to PlugLayer through the published `pluglayer-mcp` pa
 ## Requirements
 1. `uvx` must be available where Codex runs.
 2. `pluglayer-mcp` must be resolvable by `uvx`.
-3. You need a PlugLayer API token from PlugLayer Settings.
-4. Export the token before launching Codex:
+3. You need a PlugLayer API token from [portal.pluglayer.com/tokens](https://portal.pluglayer.com/tokens).
+4. The installer stores the token in `~/.pluglayer/credentials.env` and creates a `codex-pluglayer` launcher.
+
+## Installer behavior
+
+- Copies the plugin into `~/.agents/plugins/plugins/pluglayer-codex-plugin`
+- Creates or updates `~/.agents/plugins/marketplace.json`
+- Installs the plugin through `codex plugin add ...` so it is available globally in Codex
+- Detects the installed version and offers:
+  - update/reinstall PlugLayer for Codex
+  - update the saved token only
+
+## Local install from this repo
 
 ```bash
-export PLUGLAYER_API_KEY="plk_your_token_here"
+./install.sh
 ```
 
 ## Install in Codex
-Install the plugin directly from this repository root, then reload Codex if needed so the plugin manifest is re-read.
+Run the one-line installer above, then launch Codex with `codex-pluglayer` or reopen Codex normally if your shell already loads `~/.local/bin`.
 
-## Installation checklist
-1. Create a PlugLayer API token in PlugLayer Settings.
+## Manual installation checklist
+1. Create a PlugLayer API token in [portal.pluglayer.com/tokens](https://portal.pluglayer.com/tokens).
 2. Export it in the environment that launches Codex:
 
 ```bash
