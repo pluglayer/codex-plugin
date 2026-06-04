@@ -26,13 +26,14 @@ The installer gives the user a branded PlugLayer terminal flow, stages the plugi
 1. `uvx` must be available where Codex runs.
 2. `pluglayer-mcp` must be resolvable by `uvx`.
 3. You need a PlugLayer API token from [portal.pluglayer.com/tokens](https://portal.pluglayer.com/tokens).
-4. The installer stores the token in `~/.pluglayer/credentials.env` and creates a `codex-pluglayer` launcher.
+4. The installer stores the token in `~/.pluglayer/credentials.env`, and the plugin MCP config reads that file directly so Codex can use PlugLayer even when it was launched outside a shell session.
 
 ## Installer behavior
 
 - Copies the plugin into `~/.agents/plugins/plugins/pluglayer-codex-plugin`
 - Creates or updates `~/.agents/plugins/marketplace.json`
 - Installs the plugin through `codex plugin add ...` so it is available globally in Codex
+- Configures MCP to source `~/.pluglayer/credentials.env` directly before launching `pluglayer-mcp`
 - Detects the installed version and offers:
   - update/reinstall PlugLayer for Codex
   - update the saved token only
@@ -69,12 +70,12 @@ uvx pluglayer-mcp --help
 ```json
 {
   "pluglayer": {
-    "command": "uvx",
+    "command": "/bin/bash",
     "type": "stdio",
-    "args": ["pluglayer-mcp"],
-    "env": {
-      "PLUGLAYER_API_KEY": "${PLUGLAYER_API_KEY}"
-    }
+    "args": [
+      "-lc",
+      "if [ -f \"$HOME/.pluglayer/credentials.env\" ]; then . \"$HOME/.pluglayer/credentials.env\"; fi; exec uvx pluglayer-mcp"
+    ]
   }
 }
 ```
@@ -103,6 +104,6 @@ For DNS-heavy flows, the plugin should translate PlugLayer's exact DNS names int
 It does not expose PlugLayer admin-only tools. The MCP surface is focused on what an end user needs to ship and operate their own apps. Compute stays read-only through MCP, users can remove their own apps, and project removal remains an end-user project workflow rather than an admin action.
 
 ## Troubleshooting
-- If Codex cannot connect to PlugLayer MCP, verify `PLUGLAYER_API_KEY` is exported in the same environment that launches Codex.
+- If Codex cannot connect to PlugLayer MCP, verify `~/.pluglayer/credentials.env` contains the expected token and rerun the installer or choose the token update option.
 - If `uvx pluglayer-mcp` fails, repair the published `pluglayer-mcp` package first.
 - If you change `.codex-plugin/plugin.json`, `.mcp.json`, or any skill files, reload Codex so the plugin metadata refreshes.
