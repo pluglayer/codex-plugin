@@ -5,7 +5,7 @@ This plugin connects Codex to PlugLayer through the published `pluglayer-mcp` pa
 ## One-line install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/pluglayer/pluglayer-codex-plugin/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/pluglayer/codex-plugin/main/install.sh | bash
 ```
 
 The installer gives the user a branded PlugLayer terminal flow, stages the plugin into the Codex personal marketplace, saves the PlugLayer token once, and supports reinstall or token-only updates later.
