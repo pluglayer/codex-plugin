@@ -21,6 +21,7 @@ This repository contains the PlugLayer Codex plugin, MCP configuration, and Code
 - Read `README.md`
 - Keep pull requests small and intentional
 - Discuss larger skill or plugin-manifest changes before implementing them
+- Keep every Python source file at or below 500 lines; split larger scripts by responsibility while preserving their CLI and output contracts
 
 ## Good contribution areas
 
