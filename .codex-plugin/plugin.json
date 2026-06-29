@@ -1,0 +1,33 @@
+{
+  "name": "pluglayer-codex-plugin",
+  "version": "1.1.4",
+  "description": "Deploy, operate, and troubleshoot PlugLayer apps from Codex using the PlugLayer MCP.",
+  "author": {
+    "name": "PlugLayer",
+    "email": "hello@pluglayer.com",
+    "url": "https://pluglayer.com"
+  },
+  "homepage": "https://pluglayer.com",
+  "repository": "https://github.com/pluglayer/pluglayer",
+  "license": "MIT",
+  "keywords": ["pluglayer", "deployment", "mcp", "docker", "kubernetes", "codex"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "PlugLayer",
+    "shortDescription": "Deploy apps to PlugLayer from Codex.",
+    "longDescription": "Bundle PlugLayer deployment skills with the PlugLayer MCP so Codex can inspect repos, deploy apps, diagnose failed deploys, and manage end-user infrastructure tasks.",
+    "developerName": "PlugLayer",
+    "category": "Developer Tools",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://pluglayer.com",
+    "privacyPolicyURL": "https://pluglayer.com/privacy",
+    "termsOfServiceURL": "https://pluglayer.com/terms",
+    "defaultPrompt": [
+      "Inspect this repo and tell me the safest PlugLayer deploy path.",
+      "Deploy this app to PlugLayer and report the public URL.",
+      "Check why this PlugLayer deployment failed and fix it."
+    ],
+    "brandColor": "#F97316"
+  }
+}
