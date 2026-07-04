@@ -22,6 +22,7 @@ This repository contains the PlugLayer Codex plugin, MCP configuration, and Code
 - Keep pull requests small and intentional
 - Discuss larger skill or plugin-manifest changes before implementing them
 - Keep every Python source file at or below 500 lines; split larger scripts by responsibility while preserving their CLI and output contracts
+- Bump `.codex-plugin/plugin.json` whenever any file in this plugin changes, including docs, skills, installer scripts, MCP config, or metadata
 
 ## Good contribution areas
 
