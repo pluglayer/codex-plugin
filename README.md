@@ -100,7 +100,7 @@ This plugin is strongest for:
 
 For DNS-heavy flows, the plugin should translate PlugLayer's exact DNS names into registrar-friendly host entries when needed, such as `@` for the root domain or `_pluglayer-verify` instead of `_pluglayer-verify.example.com` in GoDaddy-style UIs.
 
-It does not expose PlugLayer admin-only tools. The MCP surface is focused on what an end user needs to ship and operate their own apps. Compute stays read-only through MCP, users can remove their own apps, and project removal remains an end-user project workflow rather than an admin action.
+It does not expose PlugLayer admin-only tools. The MCP surface is focused on what an end user needs to ship and operate their own apps. Compute inventory and purchasing stay read-only, while project owners may attach/detach existing dedicated nodes through backend-guarded tools; users can remove their own apps, and project removal remains an end-user project workflow rather than an admin action.
 
 ## Troubleshooting
 - If Codex desktop does not show PlugLayer after install, fully quit and reopen the app so it reloads the personal marketplace.
