@@ -21,6 +21,7 @@ The installer gives the user a branded PlugLayer terminal flow, stages the plugi
   - fix failed deploys
   - configure domains
   - set up CI/CD
+  - submit and track safe product feedback
 
 ## Requirements
 1. `uvx` must be available where Codex runs so the PlugLayer MCP can start.
@@ -86,6 +87,7 @@ uvx pluglayer-mcp --help
 - "Set up GitHub Actions CI/CD for this already-deployed app."
 - "Help me attach my custom domain and explain exactly what to put in my DNS provider."
 - "Why did this PlugLayer deploy fail? Check logs and fix it."
+- "Report this PlugLayer problem and include only safe diagnostic context."
 
 ## Current scope
 This plugin is strongest for:
@@ -97,6 +99,7 @@ This plugin is strongest for:
 - CI/CD setup for an existing PlugLayer app id
 - failure diagnosis using PlugLayer logs plus local repo inspection
 - custom domain onboarding and verification help
+- authenticated feedback submission and ticket-status checks
 
 For DNS-heavy flows, the plugin should translate PlugLayer's exact DNS names into registrar-friendly host entries when needed, such as `@` for the root domain or `_pluglayer-verify` instead of `_pluglayer-verify.example.com` in GoDaddy-style UIs.
 
