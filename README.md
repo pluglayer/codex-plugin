@@ -21,6 +21,7 @@ The installer gives the user a branded PlugLayer terminal flow, stages the plugi
   - fix failed deploys
   - configure domains
   - set up CI/CD
+  - securely import runtime env vars from key/value maps or dotenv/JSON/YAML content
   - submit and track safe product feedback
 
 ## Requirements
@@ -85,6 +86,7 @@ uvx pluglayer-mcp --help
 - "Create a PlugLayer project for this repo and deploy it."
 - "Build this repo, deploy it to PlugLayer, and use the default domain for now."
 - "Set up GitHub Actions CI/CD for this already-deployed app."
+- "Merge the runtime variables from this `.env` file into my existing app and restart it without showing their values."
 - "Help me attach my custom domain and explain exactly what to put in my DNS provider."
 - "Why did this PlugLayer deploy fail? Check logs and fix it."
 - "Report this PlugLayer problem and include only safe diagnostic context."
