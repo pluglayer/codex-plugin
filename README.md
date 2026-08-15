@@ -17,12 +17,13 @@ The installer gives the user a branded PlugLayer terminal flow, stages the plugi
   - the PlugLayer MCP server definition
 - `skills/`
   - deploy apps
+  - update project display names and descriptions without changing routing identity
   - inspect repos before deploy
   - fix failed deploys
   - configure domains
   - set up CI/CD
   - securely import runtime env vars from key/value maps or dotenv/JSON/YAML content
-  - submit and track safe product feedback
+  - submit, track, and update the text of safe owned product feedback
 
 ## Requirements
 1. `uvx` must be available where Codex runs so the PlugLayer MCP can start.
@@ -101,7 +102,7 @@ This plugin is strongest for:
 - CI/CD setup for an existing PlugLayer app id
 - failure diagnosis using PlugLayer logs plus local repo inspection
 - custom domain onboarding and verification help
-- authenticated feedback submission and ticket-status checks
+- authenticated feedback submission, ticket-status checks, and owner-scoped title/description updates
 
 For DNS-heavy flows, the plugin should translate PlugLayer's exact DNS names using the authoritative zone. Root and `www` are separate exact routes, so the plugin asks which must work and either attaches both or configures an HTTPS permanent redirect to the canonical hostname. It validates a nested path so the redirect does not drop the path or query. GoDaddy cannot publish a CNAME at `@`, so its supported apex path is a PlugLayer `www` custom domain plus GoDaddy HTTPS Permanent (301) Forward only from the root, without masking.
 
