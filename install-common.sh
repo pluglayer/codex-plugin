@@ -38,10 +38,11 @@ SAVED_TOKEN=""
 SAVED_API_URL="${DEFAULT_API_URL}"
 PLUGLAYER_API_KEY="${PLUGLAYER_API_KEY:-}"
 PLUGLAYER_API_URL="${PLUGLAYER_API_URL:-${DEFAULT_API_URL}}"
+PLUGLAYER_QUICK_INSTALL="${PLUGLAYER_QUICK_INSTALL:-0}"
 INITIAL_API_KEY="${PLUGLAYER_API_KEY}"
 INITIAL_API_URL="${PLUGLAYER_API_URL}"
 MARKETPLACE_FILE="${HOME}/.agents/plugins/marketplace.json"
-MARKETPLACE_PLUGIN_DIR="${HOME}/plugins"
+MARKETPLACE_PLUGIN_DIR="${HOME}/.agents/plugins/plugins"
 MARKETPLACE_NAME="personal"
 INSTALLING_FROM_TARGET_DIR=0
 
@@ -783,6 +784,13 @@ main() {
   stage_plugin_bundle
   load_saved_state
   show_status
+
+  if [ "${PLUGLAYER_QUICK_INSTALL}" = "1" ]; then
+    install_target
+    post_install_summary
+    restart_instructions
+    exit 0
+  fi
 
   if [ -z "${INSTALLED_VERSION}" ]; then
     install_target
