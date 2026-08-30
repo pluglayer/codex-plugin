@@ -1,7 +1,7 @@
 {
   "name": "pluglayer-codex-plugin",
-  "version": "1.1.19",
-  "description": "Deploy, operate, troubleshoot, and share product feedback from Codex using the PlugLayer MCP.",
+  "version": "1.1.20",
+  "description": "Deploy, operate, troubleshoot, and share product feedback from Codex using the PlugLayer MCP Create, test, and submit marketplace templates.",
   "author": {
     "name": "PlugLayer",
     "email": "hello@pluglayer.com",
@@ -16,7 +16,7 @@
   "interface": {
     "displayName": "PlugLayer",
     "shortDescription": "Deploy apps to PlugLayer from Codex.",
-    "longDescription": "Bundle PlugLayer deployment skills with the PlugLayer MCP so Codex can inspect repos, deploy apps, diagnose failed deploys, and manage end-user infrastructure tasks.",
+    "longDescription": "Bundle PlugLayer deployment skills with the PlugLayer MCP so Codex can inspect repos, deploy apps, diagnose failed deploys, create and submit marketplace templates, and manage end-user infrastructure tasks.",
     "developerName": "PlugLayer",
     "category": "Developer Tools",
     "capabilities": ["Read", "Write"],
@@ -25,6 +25,7 @@
     "termsOfServiceURL": "https://pluglayer.com/terms",
     "defaultPrompt": [
       "Inspect this repo and tell me the safest PlugLayer deploy path.",
+      "Create a private template from this Compose file, test it, and submit it for review.",
       "Deploy this app to PlugLayer and report the public URL.",
       "Check why this PlugLayer deployment failed and fix it."
     ],

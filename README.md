@@ -115,3 +115,11 @@ It does not expose PlugLayer admin-only tools. The MCP surface is focused on wha
 - If Codex cannot connect to PlugLayer MCP, rerun the installer or choose the token update option.
 - If `uvx pluglayer-mcp@latest` fails, repair the published `pluglayer-mcp` package first.
 - If you change `.codex-plugin/plugin.json`, `.mcp.json`, or any skill files, reload Codex so the plugin metadata refreshes.
+
+## Marketplace templates
+
+Use `manage-templates` to author or clone private Compose templates, preview and test them,
+submit for admin review, track reviewer notes, and maintain template-backed apps.
+Start with: “Turn this Compose file into a private PlugLayer template and submit it
+after testing.” Public tools cannot approve or publish submissions. The matching
+backend and `pluglayer-mcp` release must be deployed before these tools are usable.
