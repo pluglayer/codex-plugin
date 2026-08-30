@@ -44,14 +44,12 @@ This repository contains the PlugLayer Codex plugin, MCP configuration, and Code
 Before opening a PR, validate plugin JSON and docs:
 
 ```bash
-python - <<'PY'
-import json
-print(json.load(open('.mcp.json')))
-print(json.load(open('.codex-plugin/plugin.json')))
-PY
+python3 -m json.tool .codex-plugin/plugin.json >/dev/null
+python3 -m json.tool .mcp.json >/dev/null
 ```
 
-Review the skill files to make sure examples still match the current MCP tool surface.
+The repository CI performs the current Codex schema checks. Review the skill
+files as well to make sure examples still match the current MCP tool surface.
 
 ## PR expectations
 

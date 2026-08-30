@@ -1,6 +1,6 @@
 {
   "name": "pluglayer-codex-plugin",
-  "version": "1.1.18",
+  "version": "1.1.19",
   "description": "Deploy, operate, troubleshoot, and share product feedback from Codex using the PlugLayer MCP.",
   "author": {
     "name": "PlugLayer",
@@ -26,8 +26,7 @@
     "defaultPrompt": [
       "Inspect this repo and tell me the safest PlugLayer deploy path.",
       "Deploy this app to PlugLayer and report the public URL.",
-      "Check why this PlugLayer deployment failed and fix it.",
-      "Report this PlugLayer problem with safe diagnostic context."
+      "Check why this PlugLayer deployment failed and fix it."
     ],
     "brandColor": "#F97316"
   }

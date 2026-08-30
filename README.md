@@ -61,7 +61,7 @@ export PLUGLAYER_API_KEY="plk_your_token_here"
 3. Verify the MCP package is available:
 
 ```bash
-uvx pluglayer-mcp --help
+uvx pluglayer-mcp@latest --help
 ```
 
 4. Copy this plugin into `~/.agents/plugins/plugins/pluglayer-codex-plugin`.
@@ -74,10 +74,12 @@ uvx pluglayer-mcp --help
 
 ```json
 {
-  "pluglayer": {
-    "command": "pluglayer-mcp launcher",
-    "type": "stdio",
-    "args": ["..."]
+  "mcpServers": {
+    "pluglayer": {
+      "command": "uvx",
+      "type": "stdio",
+      "args": ["pluglayer-mcp@latest"]
+    }
   }
 }
 ```
@@ -111,5 +113,5 @@ It does not expose PlugLayer admin-only tools. The MCP surface is focused on wha
 ## Troubleshooting
 - If Codex desktop does not show PlugLayer after install, fully quit and reopen the app so it reloads the personal marketplace.
 - If Codex cannot connect to PlugLayer MCP, rerun the installer or choose the token update option.
-- If `uvx pluglayer-mcp` fails, repair the published `pluglayer-mcp` package first.
+- If `uvx pluglayer-mcp@latest` fails, repair the published `pluglayer-mcp` package first.
 - If you change `.codex-plugin/plugin.json`, `.mcp.json`, or any skill files, reload Codex so the plugin metadata refreshes.
