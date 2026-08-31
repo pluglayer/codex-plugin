@@ -42,8 +42,11 @@ PLUGLAYER_QUICK_INSTALL="${PLUGLAYER_QUICK_INSTALL:-0}"
 INITIAL_API_KEY="${PLUGLAYER_API_KEY}"
 INITIAL_API_URL="${PLUGLAYER_API_URL}"
 MARKETPLACE_FILE="${HOME}/.agents/plugins/marketplace.json"
-MARKETPLACE_PLUGIN_DIR="${HOME}/.agents/plugins/plugins"
+# Codex resolves ./plugins/... from the root containing .agents (HOME), not
+# from the directory containing marketplace.json.
+MARKETPLACE_PLUGIN_DIR="${HOME}/plugins"
 MARKETPLACE_NAME="personal"
+CODEX_CLI=""
 INSTALLING_FROM_TARGET_DIR=0
 
 cleanup() {
@@ -149,6 +152,29 @@ require_cmd() {
   if ! command -v "$1" >/dev/null 2>&1; then
     die "Missing required command: $1"
   fi
+}
+
+find_codex_cli() {
+  if [ -n "${PLUGLAYER_CODEX_CLI:-}" ] && [ -x "${PLUGLAYER_CODEX_CLI}" ]; then
+    printf '%s' "${PLUGLAYER_CODEX_CLI}"
+    return
+  fi
+  if command -v codex >/dev/null 2>&1; then
+    command -v codex
+    return
+  fi
+
+  local candidate
+  for candidate in \
+    "/Applications/ChatGPT.app/Contents/Resources/codex" \
+    "/Applications/Codex.app/Contents/Resources/codex"; do
+    if [ -x "${candidate}" ]; then
+      printf '%s' "${candidate}"
+      return
+    fi
+  done
+
+  return 1
 }
 
 ensure_path_line() {
@@ -268,6 +294,7 @@ configure_target() {
       TARGET_COMMAND="codex"
       TARGET_PLUGIN_DIR="${MARKETPLACE_PLUGIN_DIR}/${PLUGIN_NAME}"
       TARGET_LAUNCHER="${BIN_DIR}/codex-pluglayer"
+      CODEX_CLI="$(find_codex_cli || true)"
       ;;
     cursor)
       TARGET_LABEL="Cursor"
@@ -463,8 +490,8 @@ PY
 )"
       fi
       cd "${HOME}" 2>/dev/null || cd /tmp || die "Could not move to a safe working directory."
-      if command -v codex >/dev/null 2>&1; then
-        codex plugin remove "${PLUGIN_NAME}@${MARKETPLACE_NAME}" >/dev/null 2>&1 || true
+      if [ -n "${CODEX_CLI}" ]; then
+        "${CODEX_CLI}" plugin remove "${PLUGIN_NAME}@${MARKETPLACE_NAME}" >/dev/null 2>&1 || true
       fi
       if [ "${INSTALLING_FROM_TARGET_DIR}" -eq 0 ]; then
         rm -rf "${TARGET_PLUGIN_DIR}"
@@ -619,17 +646,36 @@ PY
 )"
 }
 
+verify_codex_install() {
+  local cache_manifest="${CODEX_HOME:-${HOME}/.codex}/plugins/cache/${MARKETPLACE_NAME}/${PLUGIN_NAME}/${AVAILABLE_VERSION}/.codex-plugin/plugin.json"
+  [ -f "${cache_manifest}" ] || die "Codex registration did not create the ${AVAILABLE_VERSION} plugin cache. The staged source remains at ${TARGET_PLUGIN_DIR}."
+
+  local cached_version
+  cached_version="$(python3 - "${cache_manifest}" <<'PY'
+import json
+import sys
+
+with open(sys.argv[1], "r", encoding="utf-8") as handle:
+    payload = json.load(handle)
+print(payload.get("version", ""))
+PY
+)"
+  [ "${cached_version}" = "${AVAILABLE_VERSION}" ] || die "Codex cached plugin version ${cached_version:-unknown}, expected ${AVAILABLE_VERSION}."
+  success "Verified Codex installed PlugLayer ${AVAILABLE_VERSION}"
+}
+
 install_codex() {
   step "Installing PlugLayer into the Codex personal marketplace"
   ensure_uv
   cd "${HOME}" 2>/dev/null || cd /tmp || die "Could not move to a safe working directory."
   upsert_codex_marketplace
-  if command -v codex >/dev/null 2>&1; then
-    codex plugin add "${PLUGIN_NAME}@${MARKETPLACE_NAME}"
-    write_launcher "${TARGET_LAUNCHER}" "codex"
+  if [ -n "${CODEX_CLI}" ]; then
+    "${CODEX_CLI}" plugin add "${PLUGIN_NAME}@${MARKETPLACE_NAME}" || die "Codex registration failed. The prepared plugin remains at ${TARGET_PLUGIN_DIR}."
+    verify_codex_install
+    write_launcher "${TARGET_LAUNCHER}" "${CODEX_CLI}"
     success "Codex CLI now has PlugLayer installed from the ${MARKETPLACE_NAME} marketplace"
   else
-    warn "Codex CLI was not found. The personal marketplace was updated for the desktop app; no CLI launcher was created."
+    warn "A Codex CLI was not found on PATH or inside the desktop app. The personal marketplace was updated, but Codex could not be registered automatically."
   fi
   success "Codex now has PlugLayer available from the ${MARKETPLACE_NAME} marketplace"
 }
