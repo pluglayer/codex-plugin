@@ -1,7 +1,7 @@
 {
   "name": "pluglayer-codex-plugin",
-  "version": "1.1.20",
-  "description": "Deploy, operate, troubleshoot, and share product feedback from Codex using the PlugLayer MCP Create, test, and submit marketplace templates.",
+  "version": "1.1.21",
+  "description": "Deploy and operate PlugLayer apps from Codex; check app security, manage IP allowlists and rate limits, create templates, and share feedback.",
   "author": {
     "name": "PlugLayer",
     "email": "hello@pluglayer.com",
@@ -10,16 +10,26 @@
   "homepage": "https://pluglayer.com",
   "repository": "https://github.com/pluglayer/pluglayer",
   "license": "MIT",
-  "keywords": ["pluglayer", "deployment", "mcp", "docker", "kubernetes", "codex"],
+  "keywords": [
+    "pluglayer",
+    "deployment",
+    "mcp",
+    "docker",
+    "kubernetes",
+    "codex"
+  ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "PlugLayer",
     "shortDescription": "Deploy apps to PlugLayer from Codex.",
-    "longDescription": "Bundle PlugLayer deployment skills with the PlugLayer MCP so Codex can inspect repos, deploy apps, diagnose failed deploys, create and submit marketplace templates, and manage end-user infrastructure tasks.",
+    "longDescription": "Inspect repos, deploy and troubleshoot apps, review app logs and security, manage IP allowlists and traffic limits, create marketplace templates, and manage end-user infrastructure with PlugLayer MCP.",
     "developerName": "PlugLayer",
     "category": "Developer Tools",
-    "capabilities": ["Read", "Write"],
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
     "websiteURL": "https://pluglayer.com",
     "privacyPolicyURL": "https://pluglayer.com/privacy",
     "termsOfServiceURL": "https://pluglayer.com/terms",
@@ -27,7 +37,8 @@
       "Inspect this repo and tell me the safest PlugLayer deploy path.",
       "Create a private template from this Compose file, test it, and submit it for review.",
       "Deploy this app to PlugLayer and report the public URL.",
-      "Check why this PlugLayer deployment failed and fix it."
+      "Check why this PlugLayer deployment failed and fix it.",
+      "Check my apps and fix suitable traffic-protection issues."
     ],
     "brandColor": "#F97316"
   }
