@@ -8,7 +8,7 @@ This plugin connects Codex to PlugLayer through the published `pluglayer-mcp` pa
 curl -fsSL https://raw.githubusercontent.com/pluglayer/codex-plugin/main/install.sh | bash
 ```
 
-The installer gives the user a branded PlugLayer terminal flow, stages the plugin into the Codex personal marketplace, saves the PlugLayer token once, and supports reinstall or token-only updates later. It does not require the Codex CLI: when `codex` is available, it also runs the CLI registration and creates a `codex-pluglayer` launcher; when only the desktop app is installed, it updates the personal marketplace files that the app can load after restart.
+The installer gives the user a branded PlugLayer terminal flow, stages the plugin into the Codex personal marketplace, saves the PlugLayer token once, and supports reinstall or token-only updates later. It uses the Codex CLI on `PATH` or the desktop app's embedded CLI to register and verify the exact prepared version. If neither is available, it still updates the personal marketplace source for a later app install.
 
 ## What is included
 - `.codex-plugin/plugin.json`
@@ -32,10 +32,10 @@ The installer gives the user a branded PlugLayer terminal flow, stages the plugi
 
 ## Installer behavior
 
-- Copies the plugin into `~/.agents/plugins/plugins/pluglayer-codex-plugin`
+- Copies the plugin into `~/plugins/pluglayer-codex-plugin`, the source path Codex resolves for the personal marketplace entry
 - Creates or updates `~/.agents/plugins/marketplace.json`
-- If the `codex` CLI exists, installs the plugin through `codex plugin add ...` and creates a `codex-pluglayer` launcher
-- If only the Codex desktop app exists, leaves the marketplace and plugin files ready for the app to load after restart
+- Uses the `codex` CLI on `PATH` or the desktop app's embedded CLI to install the plugin, verifies the installed cache version, and creates a `codex-pluglayer` launcher
+- If no Codex executable can be located, leaves the marketplace and plugin files ready for the app to load after restart and reports that automatic registration could not be verified
 - Wires the PlugLayer MCP server into Codex
 - Detects the installed version and offers:
   - update/reinstall PlugLayer for Codex
@@ -64,7 +64,7 @@ export PLUGLAYER_API_KEY="plk_your_token_here"
 uvx pluglayer-mcp@latest --help
 ```
 
-4. Copy this plugin into `~/.agents/plugins/plugins/pluglayer-codex-plugin`.
+4. Copy this plugin into `~/plugins/pluglayer-codex-plugin`.
 5. Add it to `~/.agents/plugins/marketplace.json` as a local personal-marketplace plugin.
 6. Fully quit and reopen the Codex desktop app, or run `codex plugin add pluglayer-codex-plugin@personal` if you have the CLI.
 7. Confirm the PlugLayer MCP server connects successfully.
