@@ -40,6 +40,10 @@ The installer gives the user a branded PlugLayer terminal flow, stages the plugi
 - Detects the installed version and offers:
   - update/reinstall PlugLayer for Codex
   - update the saved token only
+- During normal PlugLayer work, MCP checks installer-managed plugin versions at
+  most once per 24 hours. It stays quiet when current, asks before an available
+  update, and installs only the exact approved version from a pinned public
+  repository commit.
 
 ## Local install from this repo
 
