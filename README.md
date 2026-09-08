@@ -23,7 +23,7 @@ The installer gives the user a branded PlugLayer terminal flow, stages the plugi
   - configure domains
   - set up CI/CD
   - securely import runtime env vars from key/value maps or dotenv/JSON/YAML content
-  - submit, track, and update the text of safe owned product feedback
+  - submit and track safe owned product feedback, with new tickets referencing earlier reports for follow-ups
 
 ## Requirements
 1. `uvx` must be available where Codex runs so the PlugLayer MCP can start.
