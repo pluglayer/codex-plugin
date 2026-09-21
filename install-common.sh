@@ -190,10 +190,11 @@ ensure_path_line() {
 }
 
 ensure_uv() {
-  if command -v uvx >/dev/null 2>&1; then
+  if command -v uv >/dev/null 2>&1 && command -v uvx >/dev/null 2>&1; then
     return
   fi
 
+  require_cmd curl
   step "Installing uv so ${TARGET_LABEL} can run the PlugLayer MCP"
   curl -LsSf https://astral.sh/uv/install.sh | sh
 
@@ -202,8 +203,13 @@ ensure_uv() {
     . "${HOME}/.cargo/env"
   fi
 
+  # uv's installer places binaries in ~/.local/bin on Unix and ~/.cargo/bin
+  # on some older installations. Refresh both locations for this process.
+  export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin:${PATH}"
+
+  command -v uv >/dev/null 2>&1 || die "uv is still unavailable after the uv install."
   command -v uvx >/dev/null 2>&1 || die "uvx is still unavailable after the uv install."
-  success "uvx is available"
+  success "uv and uvx are available"
 }
 
 mask_token() {
