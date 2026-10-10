@@ -1,9 +1,9 @@
 {
   "mcpServers": {
     "pluglayer": {
-      "command": "uvx",
-      "type": "stdio",
-      "args": ["pluglayer-mcp@latest"]
+      "type": "http",
+      "url": "https://mcp.pluglayer.com/mcp",
+      "extensions": {"com.openai": {"auth": {"type": "oauth"}}}
     }
   }
 }
