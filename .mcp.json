@@ -3,7 +3,18 @@
     "pluglayer": {
       "type": "http",
       "url": "https://mcp.pluglayer.com/mcp",
-      "extensions": {"com.openai": {"auth": {"type": "oauth"}}}
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "authorizationServerBase": "https://api.pluglayer.com/v1/mcp/oauth",
+            "authorizationUrl": "https://api.pluglayer.com/v1/mcp/oauth/authorize",
+            "tokenUrl": "https://api.pluglayer.com/v1/mcp/oauth/token",
+            "registrationUrl": "https://api.pluglayer.com/v1/mcp/oauth/register",
+            "resource": "https://mcp.pluglayer.com/mcp"
+          }
+        }
+      }
     }
   }
 }
