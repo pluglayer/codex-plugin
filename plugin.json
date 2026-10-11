@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "pluglayer-codex-plugin",
-  "version": "1.1.34",
-  "description": "Deploy and operate PlugLayer apps from Codex; check app security, manage IP allowlists and rate limits, create templates, and share feedback.",
+  "version": "1.1.37",
+  "description": "Ship repos, containers, and Compose stacks to dedicated PlugLayer compute; connect databases and domains, inspect health, repair rollouts, manage CI/CD and security, launch templates, and share feedback from Codex.",
   "author": {
     "name": "PlugLayer",
     "email": "hello@pluglayer.com",
@@ -23,8 +23,8 @@
     "com.openai": {
       "interface": {
         "displayName": "PlugLayer",
-        "shortDescription": "Deploy apps to PlugLayer from Codex.",
-        "longDescription": "Inspect repos, deploy and troubleshoot apps, review app logs and security, manage IP allowlists and traffic limits, create marketplace templates, and manage end-user infrastructure with PlugLayer MCP.",
+        "shortDescription": "Ship apps to dedicated PlugLayer compute from Codex.",
+        "longDescription": "Inspect repos, plan capacity, deploy apps and databases, connect domains, review logs and health, repair rollouts, manage CI/CD and security, create marketplace templates, and share feedback with PlugLayer MCP.",
         "developerName": "PlugLayer",
         "category": "Developer Tools",
         "capabilities": [
