@@ -12,3 +12,5 @@ This plugin packages PlugLayer skills and the portable Agent Plugins manifest wi
 The root `plugin.json` and `mcp.json` are the portable package entrypoints. The legacy `.codex-plugin/` manifest remains for older Codex clients. The plugin uses `https://mcp.pluglayer.com/mcp` with OAuth. Tokens are issued and refreshed by PlugLayer and remain in Codex's secure connection storage; no API token is pasted into chat.
 
 The plugin includes PlugLayer MCP plus skills for repo inspection, deployment, domains, CI/CD, project metadata, environment updates, feedback, and deployment repair. Local repository and Docker actions use Codex's own capabilities.
+
+Detailed agent setup: [installation instructions](installation_instruction.md).
