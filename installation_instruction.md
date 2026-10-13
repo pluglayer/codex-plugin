@@ -3,7 +3,15 @@
 You are installing the official PlugLayer Codex plugin. Follow this document
 from top to bottom and do not substitute an MCP-only connection for the plugin.
 
-1. Read the available package version from `plugin.json` (or `.codex-plugin/plugin.json` on legacy hosts) in the official
+**Current public release: `1.1.37`**
+
+When checking an existing installation, fetch this file from the official
+repository and compare the installed package with this release marker. Verify
+the same value in `plugin.json` (and `.codex-plugin/plugin.json` for legacy
+Codex) before deciding whether an update is needed.
+
+1. Read the current release marker above and the package version from
+   `plugin.json` (or `.codex-plugin/plugin.json` on legacy hosts) in the official
    repository. Inspect the installed PlugLayer package and its version.
 2. Use Codex's native Plugins manager to install `pluglayer-codex-plugin` from
    `https://github.com/pluglayer/codex-plugin`, or update it when the installed
@@ -32,3 +40,7 @@ login process running, do not invent authorization URLs or reopen expired callba
 If the portal prompt specifies an MCP URL, use that environment for this setup;
 otherwise use the production URL above. Do not edit a shared plugin cache to
 change its environment. Report any native configuration limitation.
+
+## Portal Direct install
+
+From PlugLayer Portal → Agent setup, choose **Direct install**, select your operating system and Windows terminal when applicable, then run the generated command. The URL is reusable for 10 minutes, checks the native agent CLI, installs missing CLI prerequisites through the official installer, and opens browser OAuth. It does not install Python or require a PlugLayer API token.
