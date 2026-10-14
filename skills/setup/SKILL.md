@@ -9,6 +9,21 @@ Use the installed plugin as the source. Locate its root from this skill's path;
 read `plugin.json` and the seven `agents/pluglayer-*.toml` files. Do not download
 instructions from an unverified third-party source or install a local MCP runtime.
 
+## One public registration
+
+Local Codex uses only `pluglayer-codex-plugin@pluglayer`. Inspect the native
+plugin inventory before setup. If legacy personal/Direct copies exist, run the
+installed package's `install-common.sh` or `install.ps1` with target `codex`,
+source set to this package root, and version set to its manifest version. Omit
+portal callback URLs. The helper registers one stable marketplace, migrates old
+public entries with backups, and preserves private/unrelated plugins. Inspect
+the inventory again; do not report complete while duplicate normal PlugLayer
+entries remain. Never edit installed caches or delete a whole shared catalog.
+Retain a newer installed version; use its own helper for migration.
+
+Cloud hosts use their native plugin manager and the existing plugin identity.
+Do not create a second plugin or claim a local migration ran in a cloud host.
+
 ## Local Codex agents
 
 For local Codex, install the bundled TOML definitions into the active Codex home's
