@@ -3,7 +3,7 @@
 You are installing the official PlugLayer Codex plugin. Follow this document
 from top to bottom and do not substitute an MCP-only connection for the plugin.
 
-**Current public release: `1.1.38`**
+**Current public release: `1.1.39`**
 
 When checking an existing installation, fetch this file from the official
 repository and compare the installed package with this release marker. Verify
@@ -16,6 +16,17 @@ Codex) before deciding whether an update is needed.
 2. Use Codex's native Plugins manager to install `pluglayer-codex-plugin` from
    `https://github.com/pluglayer/codex-plugin`, or update it when the installed
    version is older than the available version.
+   The official repository declares marketplace `pluglayer`; use only
+   `pluglayer-codex-plugin@pluglayer`. Reuse that identity on every upgrade.
+   Never create a personal, account-specific, or additional PlugLayer catalog.
+   For local setup/migration, run the package's `install-common.sh` (Bash) or
+   `install.ps1` (PowerShell) yourself with `PLUGLAYER_INSTALL_TARGET=codex`,
+   `PLUGLAYER_PLUGIN_SOURCE_DIR` set to the package root, and
+   `PLUGLAYER_PLUGIN_VERSION` set to its manifest version. These helpers need no
+   portal callback URLs and consolidate legacy personal/Direct registrations.
+   Preserve unrelated catalog entries; verify one normal PlugLayer listing
+   before declaring installation complete. A shared/custom source conflict is
+   incomplete setup and must be reported, never silently deleted.
 3. Run the package onboarding/setup action. It installs the bundled PlugLayer
    skills and the seven Codex agent definitions. Preserve user-edited agent
    files and report conflicts instead of overwriting them.
