@@ -1,0 +1,12 @@
+{
+  "name": "pluglayer",
+  "interface": { "displayName": "PlugLayer" },
+  "plugins": [
+    {
+      "name": "pluglayer-codex-plugin",
+      "source": { "source": "url", "url": "https://github.com/pluglayer/codex-plugin" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Developer Tools"
+    }
+  ]
+}
