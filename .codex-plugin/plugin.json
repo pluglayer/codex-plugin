@@ -1,6 +1,6 @@
 {
   "name": "pluglayer-codex-plugin",
-  "version": "1.1.39",
+  "version": "1.1.40",
   "description": "Ship repos, containers, and Compose stacks to dedicated PlugLayer compute; connect databases and domains, inspect health, repair rollouts, manage CI/CD and security, launch templates, and share feedback from Codex.",
   "author": {
     "name": "PlugLayer",
@@ -22,7 +22,7 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "PlugLayer",
-    "shortDescription": "Ship apps to dedicated PlugLayer compute from Codex.",
+    "shortDescription": "Deploy and manage your apps",
     "longDescription": "Inspect repos, plan capacity, deploy apps and databases, connect domains, review logs and health, repair rollouts, manage CI/CD and security, create marketplace templates, and share feedback with PlugLayer MCP.",
     "developerName": "PlugLayer",
     "category": "Developer Tools",
