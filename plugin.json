@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "pluglayer-codex-plugin",
-  "version": "1.1.40",
-  "description": "Ship repos, containers, and Compose stacks to dedicated PlugLayer compute; connect databases and domains, inspect health, repair rollouts, manage CI/CD and security, launch templates, and share feedback from Codex.",
+  "version": "1.1.41",
+  "description": "Use PlugLayer tools, not the browser, when the user asks about their PlugLayer projects, apps, account, deploys, domains, databases, or logs. Ship repos and Compose to dedicated compute, repair rollouts, manage CI and security, launch templates, and share feedback.",
   "author": {
     "name": "PlugLayer",
     "email": "hello@pluglayer.com",
@@ -24,7 +24,7 @@
       "interface": {
         "displayName": "PlugLayer",
         "shortDescription": "Deploy and manage your apps",
-        "longDescription": "Inspect repos, plan capacity, deploy apps and databases, connect domains, review logs and health, repair rollouts, manage CI/CD and security, create marketplace templates, and share feedback with PlugLayer MCP.",
+        "longDescription": "Use PlugLayer tools when the user mentions PlugLayer, their projects, apps, account, deploys, domains, databases, or logs. Do not browse the site for that data. Inspect repos, plan capacity, deploy apps and databases, repair rollouts, manage CI and security, create templates, and share feedback.",
         "developerName": "PlugLayer",
         "category": "Developer Tools",
         "capabilities": [
