@@ -1,9 +1,11 @@
 ---
 name: setup
-description: Complete or repair PlugLayer plugin setup, activate its bundled local Codex agents, and verify the hosted OAuth connection after installation or upgrade.
+description: Install, update, repair, or reconnect the PlugLayer plugin and its local Codex agents. Use only when the user asks to install, update, repair, or reconnect. Do not use for projects, apps, deploys, domains, or account questions; use use-pluglayer instead.
 ---
 
 # PlugLayer setup
+
+If the user wants projects, apps, status, or a deploy, stop. Use `use-pluglayer` and call the tool. This skill is only for install, upgrade, and reconnect.
 
 Use the installed plugin as the source. Locate its root from this skill's path;
 read `plugin.json` and the seven `agents/pluglayer-*.toml` files. Do not download
